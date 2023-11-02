@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <div class="container">
+    <h2 class="text-center">Bài tập quản lí Sinh Viên</h2>
+    <form onsubmit="addDataUser()">
+      <div  class="row">
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="maSinhVien" class="form-label">Mã sinh viên</label>
+            <input type="text"
+              class="form-control" name="maSinhVien" id="maSinhVien" aria-describedby="helpId" placeholder="Vui lòng nhập mã sinh viên">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="tenSinhVien" class="form-label">Tên sinh viên</label>
+            <input type="text"
+              class="form-control" name="tenSinhVien" id="tenSinhVien" aria-describedby="helpId" placeholder="Vui lòng nhập tên sinh viên">
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text"
+              class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Vui lòng nhập email">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="soDienThoai" class="form-label">Số điện thoại</label>
+            <input type="text"
+              class="form-control" name="soDienThoai" id="soDienThoai" aria-describedby="helpId" placeholder="Vui lòng nhập số điện thoại">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3">
+            <label for="loaiSinhVien" class="form-label">Loại sinh viên</label>
+            <select class="form-select form-select-lg" name="loaiSinhVien" id="loaiSinhVien">
+              <option selected>Chọn loại sinh Viên</option>
+              <option value="Giàu">Giàu</option>
+              <option value="Nhà mặt phố">Nhà mặt phố</option>
+              <option value="Nghèo">Nghèo</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="diemToan" class="form-label">Điểm Toán</label>
+            <input type="text"
+              class="form-control" name="diemToan" id="diemToan" aria-describedby="helpId" placeholder="Vui lòng nhập điểm toán">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="diemLy" class="form-label">Điểm Lý</label>
+            <input type="text"
+              class="form-control" name="diemLy" id="diemLy" aria-describedby="helpId" placeholder="Vui lòng nhập điểm lý">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="diemLy" class="form-label">Điểm Hoá</label>
+            <input type="text"
+              class="form-control" name="diemLy" id="diemLy" aria-describedby="helpId" placeholder="Vui lòng nhập điểm hoá">
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="mb-3">
+            <label for="diemRenLuyen" class="form-label">Điểm Rèn luyện</label>
+            <input type="text"
+              class="form-control" name="diemRenLuyen" id="diemRenLuyen" aria-describedby="helpId" placeholder="Vui lòng nhập điểm rèn luyện">
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn btn-success me-3">Thêm sinh viên</button>
+        <button type="button" class="btn btn-warning">Cập nhập</button>
+      </div>
+    </form>
+    <div>
+      <label for="timKiemSinhVien">Tìm kiếm sinh viên</label>
+      <input oninput="searchInfoUser(event)" type="text" class="form-control" id="timKiemSinhVien" placeholder="Tìm kiếm theo tên">
+    </div>
+    <div class="mt-4">
+    <!-- bs5-table-specical -->
+      <div class="table-responsive">
+        <table class="table table-striped
+        table-hover	
+        table-borderless
+        table-primary
+        align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Mã sinh viên</th>
+              <th>Tên sinh viên</th>
+              <th>Loại sinh viên</th>
+              <th>Điểm trung bình</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Hành động</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              
+            </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Thông báo</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+
+
+
+
+
+
+
+
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.0/axios.min.js" integrity="sha512-WrdC3CE9vf1nBf58JHepuWT4x24uTacky9fuzw2g/3L9JkihgwZ6Cfv+JGTtNyosOhEmttMtEZ6H3qJWfI7gIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
+  <script src="./util.js"></script>
+  <script src="./index.js"></script>
+</body>
+
+</html>
